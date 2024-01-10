@@ -8,4 +8,5 @@ int main() {
  printf("Litera '%c' nie jest samogłoską", a);
 
     return 0;
+
 }
