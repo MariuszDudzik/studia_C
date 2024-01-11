@@ -1,0 +1,72 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+
+char* getString(int n){
+
+    char znak;
+    char* string = (char*)malloc( n * sizeof(char) + 1);
+    if (string == NULL){
+        printf("B£¥D");
+        return 0;
+    }
+    else{
+
+        for (int i =0; i<n; i++){
+         scanf("%c", &znak);
+          string[i] = znak;
+        }
+
+        string[n] = '\0';
+        putchar('\n');
+
+        return string;
+    }
+
+}
+
+void compareStrings(char* string, char* string2){
+
+ int temp, temp2;
+
+    int znacznik = 0;
+
+    for(int i=0; string[i] != '\0' && string2[i] != '\0'; ++i) {
+        temp = string[i];
+        temp2 = string2[i];
+        if (temp > temp2){
+            znacznik = 1;
+            break;
+        }
+        else{
+            if (temp < temp2){
+                znacznik = -1;
+                break;
+            }
+            else
+            {}
+        }
+        }
+
+    printf("%d", znacznik);
+
+}
+
+
+int main() {
+
+ int n, m;
+    scanf("%d\n", &n);
+    char* string = getString(n);
+
+    scanf("%d\n", &m);
+    char* string2 = getString(m);
+
+    compareStrings(string, string2);
+
+    free(string);
+    free(string2);
+
+    return 0;
+
+}
