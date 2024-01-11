@@ -41,12 +41,25 @@ if (n>0 && m >0){
         else
         mi = m+1;
 
-        for(int i =0; i<ni/2; i++){
+    if(n%2 == 0){
+        for(int i =0; i<=ni/2; i++){
+            for(int j =0; j<=mi/2; ++j){
+                temp = tab[i][j];
+                tab[i][j] = tab[n-1-j][m-1-i];
+                tab[n-1-j][m-1-i] = temp;
+            }
+            mi = mi -1;
+        }
+    }
+        else{
+            for(int i =0; i<ni/2; i++){
             for(int j =0; j<mi/2; ++j){
                 temp = tab[i][j];
                 tab[i][j] = tab[n-1-j][m-1-i];
                 tab[n-1-j][m-1-i] = temp;
             }
+
+        }
         }
 
             for(int i= 0; i<n; ++i){
