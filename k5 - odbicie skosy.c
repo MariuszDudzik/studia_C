@@ -63,21 +63,34 @@ if (n>0 && m >0){
             case 2:
 
             if(n%2==0)
-            ni = n-1;
+            ni = n/2;
             else
             ni = n-1;
             if(m%2==0)
-             mi = m-1;
+            mi = m/2-1;
             else
             mi = m-1;
 
-            for(int j = m-1; j>=mi/2; j--){
-                for(int i = 0; i<ni; ++i){
+            if(n%2 == 0){
+            for(int j = m-1; j>=mi; j--){
+                for(int i = 0; i<=ni; ++i){
                 temp = tab[i][j];
                 tab[i][j] = tab[j][i];
                 tab[j][i] = temp;
             }
+            ni = ni-1;
         }
+            }
+            else{
+
+                 for(int j = m-1; j>=mi/2; j--){
+                for(int i = 0; i<ni; ++i){
+                temp = tab[i][j];
+                tab[i][j] = tab[j][i];
+                tab[j][i] = temp;
+                }   
+                }
+            }
 
             for(int i= 0; i<n; ++i){
                 for(int j=0; j<m; ++j){
